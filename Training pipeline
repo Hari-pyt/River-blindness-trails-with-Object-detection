@@ -1,0 +1,26 @@
+ cfg.train_pipeline = [
+        dict(type='LoadImageFromFile'),
+        dict(type='LoadAnnotations', with_bbox=True),
+        dict(
+            type='Resize',
+            img_scale=(5120, 5120), # Changed
+            multiscale_mode='value',
+            keep_ratio=True),
+        dict(
+            type='RandomCrop',
+            crop_size=(0.3, 0.3),
+            crop_type='relative', # Switched from relative_range to relative (fixed crops only)
+            allow_negative_crop=True),
+        dict(
+            type='RandomFlip',
+            flip_ratio=[0.5, 0.5], 
+            direction=['horizontal', 'vertical']), 
+        dict(
+            type='Normalize',
+            mean=[103.53, 116.28, 123.675],
+            std=[1.0, 1.0, 1.0],
+            to_rgb=False),
+        dict(type='Pad', size_divisor=32),
+        dict(type='DefaultFormatBundle'),
+        dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+    ]
