@@ -1,6 +1,6 @@
 # River-blindness-trails-with-Object-detection
 
-
+https://medium.com/@gharikrishnareddy7696/accelerating-riverblindness-drug-efficacy-trials-with-object-detection-9e0b62916fe8
 
 Credits
 @article{solovyev2021weighted,
